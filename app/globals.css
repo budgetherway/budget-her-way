@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap');
+
+@import "tailwindcss";
+
+:root {
+  --green: #1B5E35;
+  --green-light: #2A7A49;
+  --green-pale: #EAF3EC;
+  --gold: #C9A84C;
+  --gold-light: #E8C96A;
+  --gold-pale: #FBF5E6;
+  --cream: #FAFAF7;
+  --text-dark: #1a1a1a;
+  --text-mid: #4a4a4a;
+  --text-muted: #888;
+  --border: #e4e4e0;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--cream);
+  color: var(--text-dark);
+  line-height: 1.7;
+}
+
+h1, h2, h3, h4 { font-family: 'Playfair Display', serif; }
+
+.prose h2 { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; color: var(--green); margin: 2rem 0 0.75rem; }
+.prose h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 600; color: var(--text-dark); margin: 1.5rem 0 0.5rem; }
+.prose p { margin: 0 0 1.25rem; font-size: 1rem; line-height: 1.8; color: var(--text-mid); }
+.prose ul { margin: 0 0 1.25rem 1.5rem; list-style: disc; }
+.prose ol { margin: 0 0 1.25rem 1.5rem; list-style: decimal; }
+.prose li { margin-bottom: 0.4rem; color: var(--text-mid); line-height: 1.7; }
+.prose a { color: var(--green); text-decoration: underline; text-underline-offset: 3px; }
+.prose a:hover { color: var(--gold); }
+.prose strong { font-weight: 600; color: var(--text-dark); }
+.prose blockquote { border-left: 3px solid var(--gold); padding: 0.75rem 1.25rem; margin: 1.5rem 0; background: var(--gold-pale); border-radius: 0 8px 8px 0; font-style: italic; color: var(--text-mid); }
