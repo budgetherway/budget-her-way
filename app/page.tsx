@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   description: "Practical budgeting, saving, investing, and debt payoff tips written for real women building financial freedom on their own terms.",
 };
 
+const MAILCHIMP_URL = "https://app.us16.list-manage.com/subscribe/post?u=dbcb86a1aabb2399bc5ed8544&id=371e2970cb&f_id=0053a6e0f0";
+
 const categories = [
   { name: 'Budgeting', icon: '📊', desc: 'Zero-based budgets, cash stuffing, paycheck planning and more.' },
   { name: 'Saving Money', icon: '💰', desc: 'Saving challenges, frugal living, and grocery hacks that work.' },
@@ -25,7 +27,45 @@ export default function HomePage() {
       <style>{`
         .cat-card { transition: all 0.2s; }
         .cat-card:hover { border-color: #C9A84C !important; transform: translateY(-2px); }
+        .newsletter-input::placeholder { color: rgba(255,255,255,0.5); }
+        .newsletter-input:focus { outline: none; border-color: #C9A84C !important; }
+        .popup-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1000; align-items: center; justify-content: center; }
+        .popup-overlay.active { display: flex; }
+        .popup-box { background: #fff; border-radius: 16px; padding: 2.5rem; max-width: 480px; width: 90%; position: relative; text-align: center; }
+        .popup-close { position: absolute; top: 14px; right: 18px; background: none; border: none; font-size: 22px; cursor: pointer; color: #888; }
       `}</style>
+
+      {/* Popup Newsletter */}
+      <div className="popup-overlay" id="newsletterPopup">
+        <div className="popup-box">
+          <button className="popup-close" onclick="document.getElementById('newsletterPopup').classList.remove('active')" aria-label="Close">×</button>
+          <div style={{ fontSize: 40, marginBottom: 12 }}>🎁</div>
+          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: '1.6rem', fontWeight: 700, color: '#1B5E35', marginBottom: 10 }}>Get Your Free Budget Planner!</h2>
+          <p style={{ fontSize: 15, color: '#5a5a5a', lineHeight: 1.7, marginBottom: 20 }}>
+            Join thousands of women taking control of their money. Subscribe and get a <strong>free Budget Planner</strong> delivered straight to your inbox.
+          </p>
+          <form action={MAILCHIMP_URL} method="post" target="_blank" style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+            <input type="email" name="EMAIL" placeholder="your@email.com" required style={{ padding: '12px 16px', borderRadius: 8, border: '1px solid #e4e4e0', fontSize: 15, outline: 'none', textAlign: 'center' }} />
+            <input type="hidden" name="b_dbcb86a1aabb2399bc5ed8544_371e2970cb" value="" />
+            <button type="submit" style={{ background: '#1B5E35', color: '#fff', padding: '13px', borderRadius: 8, fontWeight: 700, fontSize: 15, border: 'none', cursor: 'pointer' }}>
+              Yes! Send Me the Free Planner 🌿
+            </button>
+          </form>
+          <p style={{ fontSize: 11, color: '#aaa', marginTop: 10 }}>No spam. Unsubscribe any time.</p>
+        </div>
+      </div>
+
+      <script dangerouslySetInnerHTML={{ __html: `
+        setTimeout(function() {
+          if (!localStorage.getItem('bhw_popup_shown')) {
+            document.getElementById('newsletterPopup').classList.add('active');
+            localStorage.setItem('bhw_popup_shown', 'true');
+          }
+        }, 5000);
+        document.getElementById('newsletterPopup').addEventListener('click', function(e) {
+          if (e.target === this) this.classList.remove('active');
+        });
+      `}} />
 
       {/* Hero */}
       <section style={{ background: 'linear-gradient(135deg, #1B5E35 0%, #2A7A49 100%)', padding: '5rem 1.5rem', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
@@ -94,11 +134,15 @@ export default function HomePage() {
       {/* Newsletter */}
       <section style={{ background: '#1B5E35', padding: '4rem 1.5rem', textAlign: 'center' }}>
         <div style={{ maxWidth: 560, margin: '0 auto' }}>
-          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: '1.9rem', fontWeight: 700, color: '#fff', marginBottom: 12 }}>Get the weekly money digest</h2>
-          <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: 15, marginBottom: '1.75rem', lineHeight: 1.7 }}>Budgeting tips, saving challenges, and real talk about money delivered straight to your inbox every week.</p>
-          <form style={{ display: 'flex', gap: 10, maxWidth: 440, margin: '0 auto', flexWrap: 'wrap', justifyContent: 'center' }}>
-            <input type="email" placeholder="your@email.com" required style={{ flex: 1, minWidth: 200, padding: '12px 16px', borderRadius: 8, border: '1px solid rgba(255,255,255,0.2)', background: 'rgba(255,255,255,0.1)', color: '#fff', fontSize: 14, outline: 'none' }} />
-            <button type="submit" style={{ background: '#C9A84C', color: '#1B5E35', padding: '12px 22px', borderRadius: 8, fontWeight: 700, fontSize: 14, border: 'none', cursor: 'pointer', whiteSpace: 'nowrap' }}>Join Free</button>
+          <div style={{ fontSize: 36, marginBottom: 12 }}>🎁</div>
+          <h2 style={{ fontFamily: "'Playfair Display', serif", fontSize: '1.9rem', fontWeight: 700, color: '#fff', marginBottom: 12 }}>Get Your Free Budget Planner</h2>
+          <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: 15, marginBottom: '1.75rem', lineHeight: 1.7 }}>
+            Subscribe and get a <strong style={{ color: '#C9A84C' }}>free Budget Planner</strong> delivered straight to your inbox. Plus weekly money tips every week.
+          </p>
+          <form action={MAILCHIMP_URL} method="post" target="_blank" style={{ display: 'flex', gap: 10, maxWidth: 440, margin: '0 auto', flexWrap: 'wrap', justifyContent: 'center' }}>
+            <input type="email" name="EMAIL" placeholder="your@email.com" required className="newsletter-input" style={{ flex: 1, minWidth: 200, padding: '12px 16px', borderRadius: 8, border: '1px solid rgba(255,255,255,0.2)', background: 'rgba(255,255,255,0.1)', color: '#fff', fontSize: 14 }} />
+            <input type="hidden" name="b_dbcb86a1aabb2399bc5ed8544_371e2970cb" value="" />
+            <button type="submit" style={{ background: '#C9A84C', color: '#1B5E35', padding: '12px 22px', borderRadius: 8, fontWeight: 700, fontSize: 14, border: 'none', cursor: 'pointer', whiteSpace: 'nowrap' }}>Get Free Planner</button>
           </form>
           <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.4)', marginTop: 12 }}>No spam, ever. Unsubscribe any time.</p>
         </div>
