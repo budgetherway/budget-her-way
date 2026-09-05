@@ -86,13 +86,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.85)', margin: '0 0 20px 0', lineHeight: 1.7, maxWidth: 520 }}>
             A step-by-step guide to building real, lasting wealth on a regular income. No hype, no shortcuts. Just a clear plan made for women who are ready to take control of their financial future.
           </p>
-          
-            href="https://wealthpov.gumroad.com/l/thequietwealthblueprint"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ display: 'inline-block', background: '#C9A84C', color: '#fff', fontWeight: 700, fontSize: 14, padding: '12px 28px', borderRadius: 8, textDecoration: 'none' }}>
-            Get the Blueprint
-          </a>
+<a href="https://wealthpov.gumroad.com/l/thequietwealthblueprint" target="_blank" rel="noopener noreferrer" style={{ display: 'inline-block', background: '#C9A84C', color: '#fff', fontWeight: 700, fontSize: 14, padding: '12px 28px', borderRadius: 8, textDecoration: 'none' }}>Get the Blueprint</a>
         </div>
 
         {/* Back to blog */}
