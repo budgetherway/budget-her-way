@@ -91,7 +91,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             target="_blank"
             rel="noopener noreferrer"
             style={{ display: 'inline-block', background: '#C9A84C', color: '#fff', fontWeight: 700, fontSize: 14, padding: '12px 28px', borderRadius: 8, textDecoration: 'none', marginTop: 4, alignSelf: 'flex-start', letterSpacing: '0.02em' }}>
-            Get the Blueprint →
+            Get the Blueprint &rarr;
           </a>
         </div>
 
