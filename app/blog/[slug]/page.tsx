@@ -76,29 +76,29 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
         )}
 
         {/* Quiet Wealth Blueprint Promo */}
-        <div style={{ margin: '2.5rem 0', background: 'linear-gradient(135deg, #1B5E35 0%, #2A7A49 100%)', borderRadius: 16, padding: '2rem 2rem', display: 'flex', flexDirection: 'column', gap: 12 }}>
-          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#E8C96A', margin: 0 }}>
+        <div style={{ margin: '2.5rem 0', background: 'linear-gradient(135deg, #1B5E35 0%, #2A7A49 100%)', borderRadius: 16, padding: '2rem' }}>
+          <p style={{ fontSize: 11, fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: '#E8C96A', margin: '0 0 8px 0' }}>
             Ready to go deeper?
           </p>
-          <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(1.2rem, 3vw, 1.6rem)', fontWeight: 700, color: '#fff', margin: 0, lineHeight: 1.3 }}>
+          <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: 'clamp(1.2rem, 3vw, 1.6rem)', fontWeight: 700, color: '#fff', margin: '0 0 12px 0', lineHeight: 1.3 }}>
             The Quiet Wealth Blueprint
           </h3>
-          <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.85)', margin: 0, lineHeight: 1.7, maxWidth: 520 }}>
+          <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.85)', margin: '0 0 20px 0', lineHeight: 1.7, maxWidth: 520 }}>
             A step-by-step guide to building real, lasting wealth on a regular income. No hype, no shortcuts. Just a clear plan made for women who are ready to take control of their financial future.
           </p>
           
             href="https://wealthpov.gumroad.com/l/thequietwealthblueprint"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ display: 'inline-block', background: '#C9A84C', color: '#fff', fontWeight: 700, fontSize: 14, padding: '12px 28px', borderRadius: 8, textDecoration: 'none', marginTop: 4, alignSelf: 'flex-start', letterSpacing: '0.02em' }}>
-            Get the Blueprint &rarr;
+            style={{ display: 'inline-block', background: '#C9A84C', color: '#fff', fontWeight: 700, fontSize: 14, padding: '12px 28px', borderRadius: 8, textDecoration: 'none' }}>
+            Get the Blueprint
           </a>
         </div>
 
         {/* Back to blog */}
         <div style={{ marginTop: '2rem' }}>
           <Link href="/blog" style={{ color: '#1B5E35', fontSize: 14, fontWeight: 600, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-            ← Back to all posts
+            Back to all posts
           </Link>
         </div>
       </div>
